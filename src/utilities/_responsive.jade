@@ -1,0 +1,26 @@
+//- Фабрика утилит адаптивности
+    breakpoints - Контрольные точки
+    prefix - Приставка классов
+    sufix - Окончание классов
+    tag - Имя html тэга
+mixin responsive-utilities-factory(breakpoints, prefix, sufix, tag)
+    - if (!tag) tag = 'div'
+
+    - var classes = []
+    each breakpoint in breakpoints
+        - classes.push(prefix + breakpoint + sufix)
+
+    #{tag}(class=classes)&attributes(attributes)
+        block
+
+//- Скрыть при уменьшении окна браузера
+    breakpoints - Контроьные точки xs, sm, md, lg или xl
+mixin hidden-down(breakpoints)
+    +responsive-utilities-factory(breakpoints, 'hidden-', '-down')&attributes(attributes)
+        block
+
+//- Скрыть при увеличении окна браузера
+    breakpoints - Контроьные точки xs, sm, md, lg или xl
+mixin hidden-up(breakpoints)
+    +responsive-utilities-factory(breakpoints, 'hidden-', '-up')&attributes(attributes)
+        block

@@ -51,7 +51,9 @@ mixin viewport(viewport)
 
 //- Добавление мета тэгов
 mixin head
-    +charset
-    +compatible
-    +viewport
-    block
+    head
+        +charset
+        +compatible
+        +viewport
+
+        block
