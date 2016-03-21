@@ -1,0 +1,57 @@
+//- Подключение js
+mixin js(src)
+    if src
+        script(src=src)&attributes(attributes)
+    else
+        script&attributes(attributes)
+            block
+
+//- Подключение css
+mixin css(src)
+    if src
+        link(href=src, rel="stylesheet")&attributes(attributes)
+    else
+        style&attributes(attributes)
+            block
+
+//- Подключение иконки
+mixin favicon(href)
+    link(rel="shortcut icon", href=href)&attributes(attributes)
+
+//- Указание кодировки
+mixin charset(charset)
+    - if(!charset) charset = 'utf-8'
+    meta(charset=charset)&attributes(attributes)
+
+//- Управление индексацией
+mixin robots(content)
+    meta(name="robots", content=content)&attributes(attributes)
+
+//- Указание описания
+mixin description(content)
+    meta(name="description", content=content)&attributes(attributes)
+
+//- Указание ключевых слов
+mixin keywords(content)
+    meta(name="keywords", content=content)&attributes(attributes)
+
+//- Указание автора
+mixin author(content)
+    meta(name="author", content=content)&attributes(attributes)
+
+//- Управление режимом совместимости IE
+mixin compatible(IE)
+    - if (!IE) IE = 'edge'
+    meta(http-equiv="x-ua-compatible", content='ie=' + IE)&attributes(attributes)
+
+//- Управление размером области просмотра
+mixin viewport(viewport)
+    - if (!viewport) viewport = 'width=device-width, initial-scale=1, shrink-to-fit=no'
+    meta(name="viewport", content=viewport)&attributes(attributes)
+
+//- Добавление мета тэгов
+mixin head
+    +charset
+    +compatible
+    +viewport
+    block
