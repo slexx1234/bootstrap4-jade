@@ -1,7 +1,5 @@
 //- Ссылка
     href - Путь
 mixin link(href)
-    - if (!href) href = '#'
-
-    a(href=href)&attributes(attributes)
+    a(href=(href || '#'))&attributes(attributes)
         block

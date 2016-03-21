@@ -10,3 +10,32 @@ mixin btn-build(brand, size, tag, sufix)
 
     #{tag}.btn(class=btnClass)&attributes(attributes)
         block
+
+//- Кнопка
+    brand - primary, secondary, success, info, warning, danger или link
+    size - sm или lg
+mixin btn(brand, size)
+    +btn-build(brand, size, 'button')(type="button")&attributes(attributes)
+        block
+
+//- Кнопка с прозрачным фоном
+mixin btn-outline(brand, size)
+    +btn-build(brand, size, 'button', '-outline')(type="button")&attributes(attributes)
+        block
+
+//- Кнопка - Ссылка
+    href - Путь
+    brand - primary, secondary, success, info, warning, danger или link
+    size - sm или lg
+mixin btn-link(href, brand, size)
+    +btn-build(brand, size, 'a')(role="button", href=(href || '#'))&attributes(attributes)
+        block
+
+//- Кнопка ссылка с тонкими краями
+    href - Путь
+    brand - primary, secondary, success, info, warning, danger или link
+    size - sm или lg
+mixin btn-link-outline(href, brand, size)
+    +btn-build(brand, size, 'a', '-outline')(role="button", href=(href || '#'))&attributes(attributes)
+        block
+
