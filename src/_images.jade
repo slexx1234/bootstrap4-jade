@@ -1,0 +1,30 @@
+//- Подключение изображения
+    src - Путь
+    alt - Альтернативный текст
+mixin img(src, alt)
+    - if (!alt) alt = src
+    img(src=src, alt=alt)&attributes(attributes)
+
+//- Адаптивное изображение
+    src - Путь
+    alt - Альтернативный текст
+mixin img-fluid(src, alt)
+    +img(src, alt).img-fluid&attributes(attributes)
+
+//- Изображение с закруглёнными углами
+    src - Путь
+    alt - Альтернативный текст
+mixin img-rounded(src, alt)
+    +img(src, alt).img-rounded&attributes(attributes)
+
+//- Круглое изображени
+    src - Путь
+    alt - Альтернативный текст
+mixin img-circle(src, alt)
+    +img(src, alt).img-circle&attributes(attributes)
+
+//- Миниатюра
+    src - Путь
+    alt - Альтернативный текст
+mixin img-thumbnail(src, alt)
+    +img(src, alt).img-thumbnail&attributes(attributes)
