@@ -1,0 +1,24 @@
+//- Изображение фигуры
+    src - Путь
+    alt - Альтернативный текст
+mixin figure-img(src, alt)
+    +img-fluid(src, alt).img-rounded.figure-img&attributes(attributes)
+
+//- Описание фигуры
+mixin figure-caption
+    figcaption.figure-caption&attributes(attributes)
+        block
+
+//- Обёртка фигуры
+mixin figure-wrap
+    figure.figure&attributes(attributes)
+        block
+
+//- Фигура
+    src - Путь
+    alt - Альтернативный текст
+mixin figure(src, alt)
+    +figure-wrap&attributes(attributes)
+        +figure-img(src, alt)
+        +figure-caption
+            block
