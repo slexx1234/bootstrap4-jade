@@ -1,0 +1,16 @@
+//- Бар кнопок
+mixin btn-toolbar
+    .btn-toolbar(role="toolbar")&attributes(attributes)
+        block
+
+//- Группа кнопок
+    size - sm или lg
+mixin btn-group(size)
+    .btn-group(role="group", class=(size ? 'btn-group-' + size : ''))&attributes(attributes)
+        block
+
+//- Вертикальная группа кнопок
+    size - sm или lg
+mixin btn-group-vertical(size)
+    .btn-group-vertical(role="group", class=(size ? 'btn-group-' + size : ''))&attributes(attributes)
+        block

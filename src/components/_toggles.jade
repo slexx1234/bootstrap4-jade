@@ -17,7 +17,7 @@ mixin btn-radio(brand, size)
 
 //- Группа переключателей
 mixin btn-group-toggles(size)
-    .btn-group(data-toggle="buttons")&attributes(attributes)
+    +btn-group(size)(data-toggle="buttons")&attributes(attributes)
         block
 
 //- Группа радио кнопок
