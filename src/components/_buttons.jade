@@ -23,7 +23,7 @@ mixin btn-outline(brand, size)
     +btn-build(brand, size, 'button', '-outline')(type="button")&attributes(attributes)
         block
 
-//- Кнопка - Ссылка
+//- Кнопка/Ссылка
     href - Путь
     brand - primary, secondary, success, info, warning, danger или link
     size - sm или lg
@@ -38,4 +38,3 @@ mixin btn-link(href, brand, size)
 mixin btn-link-outline(href, brand, size)
     +btn-build(brand, size, 'a', '-outline')(role="button", href=(href || '#'))&attributes(attributes)
         block
-

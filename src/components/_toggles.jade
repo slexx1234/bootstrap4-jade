@@ -1,0 +1,45 @@
+//- Кнопка/Переключатель
+mixin btn-toggle(brand, size)
+    +btn(brand, size)(data-toggle="button", aria-pressed="false", autocomplete="off")&attributes(attributes)
+        block
+
+//- Checkbox
+mixin btn-checkbox(brand, size)
+    +btn(brand, size)
+        input(type="checkbox", autocomplete="off")&attributes(attributes)
+        block
+
+//- Radio
+mixin btn-radio(brand, size)
+    +btn(brand, size)
+        input(type="radio", autocomplete="off")&attributes(attributes)
+        block
+
+//- Группа переключателей
+mixin btn-group-toggles(size)
+    .btn-group(data-toggle="buttons")&attributes(attributes)
+        block
+
+//- Группа радио кнопок
+    name - Имя input
+    items - Текст элементов
+    brand - Бранд кнопок
+    size - Размер группы
+    active - Порядковый номер активного элемента
+mixin radio-toggles(name, items, brand, size, active)
+    +btn-group-toggles(size)
+        each text, index in items
+            +btn-radio(brand, size)(name=name, class=(index == active ? 'active' : ''))
+                = text
+
+//- Группа чекбоксов
+    name - Имя input
+    items - Текст элементов
+    brand - Бранд кнопок
+    size - Размер группы
+    active - Порядковый номер активного элемента
+mixin checkbox-toggles(name, items, brand, size, active)
+    +btn-group-toggles(size)
+        each text, index in items
+            +btn-checkbox(brand, size)(name=name, class=(index == active ? 'active' : ''))
+                = text
