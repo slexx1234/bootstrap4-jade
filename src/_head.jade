@@ -59,6 +59,15 @@ mixin bootstrap-cdn
     +js('https://cdn.jsdelivr.net/tether/1.2.0/tether.min')
     +js('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min')(integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7", crossorigin="anonymous")
 
+// Подключение шрифта Font Awesome
+mixin font-awesome-cdn
+    // Font Awesome
+    +css('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min')
+
+mixin open-iconic-cdn
+    // Open Iconic
+    +css('https://cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min')
+
 //- Добавление мета тэгов
 mixin head
     head
@@ -66,5 +75,22 @@ mixin head
         +charset
         +compatible
         +viewport
+
+        block
+
+//- Быстрое указание head (Bootstrap автоматически подключаеться через СDN)
+    description - Описание
+    keywords - Ключивые слова
+    author = Автор
+mixin quick-head(description, keywords, author)
+    +head
+        // Site description
+        +description(description)
+        +keywords(keywords)
+        +author(author)
+
+        // СDN
+        +bootstrap-cdn
+        +font-awesome-cdn
 
         block
