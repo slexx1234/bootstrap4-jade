@@ -1,0 +1,12 @@
+//- Строитель кнопок
+    brand - primary, secondary, success, info, warning, danger или link
+    size - sm или lg
+    tag - Имя html тэгп
+    sufix - Окончание класса кнопки
+mixin btn-build(brand, size, tag, sufix)
+    - if (!brand) brand = 'secondary'
+
+    - var btnClass = 'btn-' + brand + sufix + (size ? 'btn-' + size : '')
+
+    #{tag}.btn(class=btnClass)&attributes(attributes)
+        block
