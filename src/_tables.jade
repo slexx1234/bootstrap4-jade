@@ -1,54 +1,46 @@
-//- Создание колонки таблицы
-    options {
-        attributes - Атрибуты
-        text - Текст
-    }
-mixin tcell(options, tag)
-    - if (!tag) tag = 'td'
-
-    #{tag}&attributes(options.attributes)
-        = options.text
-
 //- Создание строки
     options - Массив настроек миксина table-cell
     cellTag - Имя тэга колонки
-mixin trow-factory(options, cellTag)
+mixin table-row(options, cellTag)
     tr
         each option in options
-            +tcell(option, cellTag)
+            #{cellTag}= option
 
 //- Строка шапки таблицы
 mixin thead-row(options)
-    +trow-factory(options, 'th')
+    +table-row(options, 'th')
 
 //- Строка тела таблицы
 mixin tbody-row(options)
-    +trow-factory(options)
+    +table-row(options)
 
 // Строка подвала таблицы
 mixin tfoot-row(options)
-    +trow-factory(options)
+    +table-row(options)
 
 //- Заголовак таблицы
     options - Массив строк
 mixin thead(options)
-    thead
-        each option in options
-            +thead-row(option)
+    if options
+        thead
+            each option in options
+                +thead-row(option)
 
 //- Содержание таблицы
     options - Массив строк
 mixin tbody(options)
-    tbody
-        each option in options
-            +tbody-row(option)
+    if options
+        tbody
+            each option in options
+                +tbody-row(option)
 
 //- Полвал таблицы
     options - Массив строк
 mixin tfoot(options)
-    tfoot
-        each option in options
-            +tfoot-row(option)
+    if options
+        tfoot
+            each option in options
+                +tfoot-row(option)
 
 //- Создание таблицы
     head - Шапка
