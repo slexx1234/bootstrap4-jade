@@ -1,0 +1,17 @@
+//- Адаптивные встроеные элементы
+mixin embed-responsive(src)
+    .embed-responsive
+        iframe.embed-responsive-item(src=src)&attributes(attributes)
+
+mixin embed-responsive-21by9(src)
+    +embed-responsive(src).embed-responsive-21by9&attributes(attributes)
+
+mixin embed-responsive-16by9(src)
+    +embed-responsive(src).embed-responsive-16by9&attributes(attributes)
+
+mixin embed-responsive-4by3(src)
+    +embed-responsive(src).embed-responsive-4by3&attributes(attributes)
+
+mixin embed-responsive-1by1(src)
+    +embed-responsive(src).embed-responsive-1by1&attributes(attributes)
+
