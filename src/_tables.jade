@@ -1,0 +1,86 @@
+//- Создание колонки таблицы
+    options {
+        attributes - Атрибуты
+        text - Текст
+    }
+mixin tcell(options, tag)
+    - if (!tag) tag = 'td'
+
+    #{tag}&attributes(options.attributes)
+        = options.text
+
+//- Создание строки
+    options - Массив настроек миксина table-cell
+    cellTag - Имя тэга колонки
+mixin trow-factory(options, cellTag)
+    tr
+        each option in options
+            +tcell(option, cellTag)
+
+//- Строка шапки таблицы
+mixin thead-row(options)
+    +trow-factory(options, 'th')
+
+//- Строка тела таблицы
+mixin tbody-row(options)
+    +trow-factory(options)
+
+// Строка подвала таблицы
+mixin tfoot-row(options)
+    +trow-factory(options)
+
+//- Заголовак таблицы
+    options - Массив строк
+mixin thead(options)
+    thead
+        each option in options
+            +thead-row(option)
+
+//- Содержание таблицы
+    options - Массив строк
+mixin tbody(options)
+    tbody
+        each option in options
+            +tbody-row(option)
+
+//- Полвал таблицы
+    options - Массив строк
+mixin tfoot(options)
+    tfoot
+        each option in options
+            +tfoot-row(option)
+
+//- Создание таблицы
+    head - Шапка
+    body - Содержание
+    foot - Подвал
+mixin table(head, body, foot)
+    table.table&attributes(attributes)
+        +thead(head)
+        +tbody(body)
+        +tfoot(foot)
+
+//- Полосатая таблица
+mixin table-striped(head, body, foot)
+    +table(head, body, foot).table-striped&attributes(attributes)
+
+//- Таблица с рамкой
+mixin table-bordered(head, body, foot)
+    +table(head, body, foot).table-bordered&attributes(attributes)
+
+//- Фокусабельная табица
+mixin table-hover(head, body, foot)
+    +table(head, body, foot).table-hover&attributes(attributes)
+
+//- Маленькая таблица
+mixin table-sm(head, body, foot)
+    +table(head, body, foot).table-sm&attributes(attributes)
+
+// Адаптивная таблица
+mixin table-responsive(head, body, foot)
+    .table-responsive
+        +table(head, body, foot)&attributes(attributes)
+
+// Перевёрнутая таблица
+mixin table-reflow(head, body, foot)
+    +table(head, body, foot).table-reflow&attributes(attributes)
