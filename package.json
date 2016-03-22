@@ -2,7 +2,7 @@
   "name": "bootstrap4-jade",
   "version": "1.0.0",
   "description": "",
-  "main": "src/_mixins.pug",
+  "main": "library/_mixins.jade",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Alex5646/bootstrap4-jade/issues"
   },
-  "homepage": "https://github.com/Alex5646/bootstrap4-jade#readme"
+  "homepage": "https://github.com/Alex5646/bootstrap4-jade#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jade": "^1.1.0"
+  }
 }

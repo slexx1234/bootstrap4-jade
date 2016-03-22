@@ -5,7 +5,7 @@
     "Alex5646 <catia.petrowi4@yandex.ru>"
   ],
   "description": "",
-  "main": "src/_mixins.pug",
+  "main": "library/_mixins.jade",
   "moduleType": [],
   "license": "MIT",
   "private": true,

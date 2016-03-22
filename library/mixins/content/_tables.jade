@@ -14,7 +14,7 @@ mixin thead-row(options)
 mixin tbody-row(options)
     +table-row(options)
 
-// Строка подвала таблицы
+//- Строка подвала таблицы
 mixin tfoot-row(options)
     +table-row(options)
 
@@ -68,11 +68,11 @@ mixin table-hover(head, body, foot)
 mixin table-sm(head, body, foot)
     +table(head, body, foot).table-sm&attributes(attributes)
 
-// Адаптивная таблица
+//- Адаптивная таблица
 mixin table-responsive(head, body, foot)
     .table-responsive
         +table(head, body, foot)&attributes(attributes)
 
-// Перевёрнутая таблица
+//- Перевёрнутая таблица
 mixin table-reflow(head, body, foot)
     +table(head, body, foot).table-reflow&attributes(attributes)

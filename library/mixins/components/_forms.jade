@@ -11,9 +11,8 @@ mixin form-group(label)
         block
 
 //- Радио кнопки
-    wrapClass - Классы обёртки
-mixin radio(wrapClass)
-    .radio(class=wrapClass)
+mixin radio
+    .radio
         label
             input(type="radio")&attributes(attributes)
             block
@@ -21,20 +20,20 @@ mixin radio(wrapClass)
 mixin radio-inline
     label.radio-inline
         input(type="radio")&attributes(attributes)
-            block
+        block
 
 //- Чекбоксы
-    wrapClass - Классы обёртки
-mixin checkbox(wrapClass)
-    .checkbox(class=wrapClass)
+mixin checkbox
+    .checkbox
         label
             input(type="checkbox")&attributes(attributes)
             block
 
+//
 mixin checkbox-inline
     label.checkbox-inline
         input(type="checkbox")&attributes(attributes)
-            block
+        block
 
 //- Кнопка отправки
 mixin submit(brand, size)
