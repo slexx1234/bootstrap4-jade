@@ -1,0 +1,8 @@
+//- Метка
+    brand - default, primary, success, info, warning, danger
+    pill - В форме пилюли? (bool)
+mixin label(brand, pill)
+    - var labelClass = 'label-' + brand + (pill ? ' label-pill' : '')
+
+    span.label(class=labelClass)&attributes(attributes)
+        block
