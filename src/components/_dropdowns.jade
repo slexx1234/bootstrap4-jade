@@ -43,17 +43,19 @@ mixin dropdown-menu(items)
                         = text
 
 //- Выпадывающее меню
-    text - Текст кнопки открытия меню
     items - Элементы меню
-mixin dropdown(text, items)
+mixin dropdown(items)
     .dropdown&attributes(item.attributes)
-        +dropdown-toggle= text
+        +dropdown-toggle
+            block
+
         +dropdown-menu(items)
 
 //- Выпадвающее меню вверх
-mixin dropup(text, items)
+mixin dropup(items)
     .dropup&attributes(item.attributes)
-        +dropdown-toggle= text
-        +dropdown-menu(items)
+        +dropdown-toggle
+            block
 
+        +dropdown-menu(items)
 

@@ -1,0 +1,91 @@
+//- Ссылка навигации
+mixin nav-link(href)
+    +link(href).nav-link&attributes(attributes)
+        block
+
+//- Обёртка элемента меню
+mixin nav-item-wrap
+    li.nav-item&attributes(attributes)
+        block
+
+mixin nav-item(href)
+    +nav-item-wrap
+        +nav-link(href)&attributes(attributes)
+            block
+
+//- Кнопка открытия выпадывающего меню
+mixin nav-dropdown-toggle(href)
+    +nav-link(href).dropdown-toggle(
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    )&attributes(attributes)
+        block
+
+//- Выпадывающее меню
+    href - Ссылка кнопки
+    items - Элементы
+    toggleAttributes - Атибуты кнопки
+mixin nav-dropdown(href, items, toggleAttributes)
+    +nav-item-wrap.dropdown&attributes(attributes)
+        +nav-dropdown-toggle(href)&attributes(toggleAttributes)
+            block
+
+        +dropdown-menu(items)
+
+//- Выпадывающее на верх
+    href - Ссылка кнопки
+    items - Элементы
+    toggleAttributes - Атибуты кнопки
+mixin nav-dropup(href, items, toggleAttributes)
+    +nav-item-wrap.dropup&attributes(attributes)
+        +nav-dropdown-toggle(href)&attributes(toggleAttributes)
+            block
+
+        +dropdown-menu(items)
+
+//- Строитель меню
+    items [
+        {
+            children - Элементы выпадывающего меню
+            type - Тип выпадывающего меню (dropup, dropdown)
+            href - Ссылка
+            text - Текст ссылки
+            attributes - Атрибуты элемента
+        }
+        и т.д.
+    ]
+mixin nav-menu(items)
+    each item in items
+        if item.children
+            case item.type
+                when 'dropup'
+                    +nav-dropup(item.href, item.children, item.attributes)
+                        = item.text
+
+                default
+                    +nav-dropdown(item.href, item.children, item.attributes)
+                        = item.text
+
+        else
+            +nav-item(item.href)&attributes(item.attributes)
+                = item.text
+
+//- Обёртка меню
+    type - inline, tabs, pills
+    stacked - Вертикальное меню?
+mixin nav-wrap(type, stacked)
+    - var navCLass = 'nav-' + type + (stacked ? ' nav-stacked' : '')
+
+    ul.nav(class=navCLass)&attributes(attributes)
+        block
+
+//- Меню
+    type - Тип меню
+    items - Элементы меню
+mixin nav(type, items)
+    +nav-wrap(type)&attributes(attributes)
+        +nav-menu(items)
+
+
