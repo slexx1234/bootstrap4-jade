@@ -1,0 +1,44 @@
+extends ../library/_master
+
+block title
+    title Starter Template for Bootstrap
+
+append css
+    +css.
+        body {
+          padding-bottom: 2rem }
+
+block container
+    +navbar('inverse', false).navbar-static-top
+        +navbar-brand Project name
+        +navbar-nav([
+            {text: 'Home', attributes: {'class': 'active'}},
+            {text: 'About'},
+            {text: 'Contact'}
+        ])
+
+    +jumbotron(true, true)
+        h1.display-3 Hello, world!
+        p.
+            This is a template for a simple marketing or informational website. It
+            includes a large callout called a jumbotron and three supporting pieces
+            of content. Use it as a starting point to create something more unique.
+
+        +btn('primary', 'lg') Learn more »
+
+
+    .container
+        .row
+            - for (var i = 0; i < 3; i++)
+                .col-md-4
+                    h4 Heading
+                    p.
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                        ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
+                        justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+                        Donec sed odio dui.
+
+                    p: +btn View details &raquo;
+
+        hr
+        footer: p © Company 2015

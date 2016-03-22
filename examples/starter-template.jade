@@ -3,6 +3,15 @@ extends ../library/_master
 block title
     title Starter Template for Bootstrap
 
+append css
+    +css.
+        body {
+          padding-top: 5rem }
+
+        .starter-template {
+          padding: 3rem 1.5rem;
+          text-align: center }
+
 block container
     +navbar('inverse', false).navbar-fixed-top
         +navbar-brand Project name

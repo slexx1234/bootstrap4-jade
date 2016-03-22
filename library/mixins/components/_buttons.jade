@@ -6,7 +6,7 @@
 mixin btn-build(brand, size, tag, sufix)
     - if (!brand) brand = 'secondary'
 
-    - var btnClass = 'btn-' + brand + sufix + (size ? 'btn-' + size : '')
+    - var btnClass = 'btn-' + brand + (sufix ? sufix : '') + (size ? ' btn-' + size : '')
 
     #{tag}.btn(class=btnClass)&attributes(attributes)
         block
