@@ -76,7 +76,7 @@ mixin nav-menu(items)
     type - inline, tabs, pills
     stacked - Вертикальное меню?
 mixin nav-wrap(type, stacked)
-    - var navCLass = 'nav-' + type + (stacked ? ' nav-stacked' : '')
+    - var navCLass = (type ? 'nav-' + type : '') + (stacked ? ' nav-stacked' : '')
 
     ul.nav(class=navCLass)&attributes(attributes)
         block
@@ -87,7 +87,5 @@ mixin nav-wrap(type, stacked)
 mixin nav(type, items)
     +nav-wrap(type)&attributes(attributes)
         +nav-menu(items)
-
-
 
 

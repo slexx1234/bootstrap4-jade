@@ -4,7 +4,8 @@ mixin fieldset(legend)
         legend= legend
         block
 
-//- TODO
+//- Группа формы
+    label - Заголовак
 mixin form-group(label)
     fieldset.form-group&attributes(attributes)
         label.form-control-label= label
@@ -29,7 +30,6 @@ mixin checkbox
             input(type="checkbox")&attributes(attributes)
             block
 
-//
 mixin checkbox-inline
     label.checkbox-inline
         input(type="checkbox")&attributes(attributes)

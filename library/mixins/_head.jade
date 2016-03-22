@@ -1,7 +1,7 @@
 //- Подключение js
 mixin js(src)
     if src
-        script(src=src + '.js')&attributes(attributes)
+        script(src=src + '.js', defer)&attributes(attributes)
     else
         script&attributes(attributes)
             block
