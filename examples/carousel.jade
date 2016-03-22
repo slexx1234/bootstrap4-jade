@@ -1,0 +1,136 @@
+extends ../library/_master
+
+block title
+    title Carousel Template for Bootstrap
+
+append css
+    +css('http://v4-alpha.getbootstrap.com/examples/carousel/carousel')
+
+append js
+    +js('https://cdn.jsdelivr.net/holder/2.9.3/holder.min')
+
+block container
+    +navbar('faded', true).navbar-full
+        +navbar-brand Carousel
+        +navbar-nav([
+            {text: 'Home', attributes: {'class': 'active'}},
+            {text: 'Features'},
+            {text: 'Pricing'},
+            {text: 'About'}
+        ])
+
+    //Carousel
+    +carousel-wrap#myCarousel
+        +carousel-indicators('myCarousel', 3)
+
+        +carousel-inner
+            - var image = 'data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
+            mixin item-text
+                p.
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec
+                    id elit non mi porta gravida at eget metus. Nullam id dolor id
+                    nibh ultricies vehicula ut id elit.
+
+            .carousel-item.active
+                +img(image, 'First slide')
+                .container: .carousel-caption.text-xs-left
+                    h1 Example headline.
+                    +item-text
+                    +btn('primary', 'lg') Sign up today
+
+
+            .carousel-item
+                +img(image, 'Second slide')
+                .container: .carousel-caption
+                    h1 Another example headline.
+                    +item-text
+                    +btn('primary', 'lg') Learn more
+
+            .carousel-item
+                +img(image, 'Third slide')
+                .container: .carousel-caption.text-xs-right
+                    h1 One more for good measure.
+                    +item-text
+                    +btn('primary', 'lg') Browse gallery
+
+        +carousel-controls('myCarousel')
+
+    //Marketing messaging and featurettes
+    .container.marketing
+
+        //Three columns of text below the carousel
+        .row
+            - for (var i = 0; i < 3; i ++)
+                .col-lg-4
+                    +img-circle('data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', 'Generic placeholder image')(width="140", height="140")
+
+                    h2 Heading
+                    p.
+                        Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+                        Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo
+                        risus, porta ac consectetur ac, vestibulum at eros. Praesent
+                        commodo cursus magna.
+
+                    +btn View details &raquo;
+
+        //START THE FEATURETTES
+
+        hr.featurette-divider
+
+        mixin featurette-text
+            p.lead.
+                Donec ullamcorper nulla non metus auctor fringilla. Vestibulum
+                id ligula porta felis euismod semper. Praesent commodo cursus
+                magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
+                ac cursus commodo.
+
+        .row.featurette
+            .col-md-7
+                h2.featurette-heading
+                    | First featurette heading.
+                    +s: span.text-muted It'll blow your mind.
+
+                +featurette-text
+
+            .col-md-5
+                +img-fluid('holder.js/500x500/auto').featurette-image.center-block
+
+        hr.featurette-divider
+
+        .row.featurette
+            .col-md-7.col-md-push-5
+                h2.featurette-heading
+                    | Oh yeah, it's that good.
+                    +s: span.text-muted See for yourself.
+
+                +featurette-text
+
+            .col-md-5.col-md-pull-7
+                +img-fluid('holder.js/500x500/auto').featurette-image.center-block
+
+        hr.featurette-divider
+
+        .row.featurette
+            .col-md-7
+                h2.featurette-heading
+                    | And lastly, this one.
+                    +s: span.text-muted Checkmate.
+
+                +featurette-text
+
+            .col-md-5
+                +img-fluid('holder.js/500x500/auto').featurette-image.center-block
+
+        hr.featurette-divider
+
+        //END THE FEATURETTES
+
+        //FOOTER
+        footer
+            p.pull-xs-right: +link Back to top
+            p
+                | &copy; 2014 Company, Inc. &middot;
+                +s: +link Privacy
+                |  &middot;
+                +s: +link Terms
+

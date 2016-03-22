@@ -1,14 +1,14 @@
 //- Преаедущий слайд
     target - ID карусели к которой относятся
 mixin carousel-prev(target)
-    +link(target).left.carousel-control(role="button", data-slide="prev")&attributes(attributes)
+    +link('#' + target).left.carousel-control(role="button", data-slide="prev")&attributes(attributes)
         span.icon-prev(aria-hidden="true")
         span.sr-only Previous
 
 //- Следующий слайд
     target - ID карусели к которой относятся
 mixin carousel-next(target)
-    +link(target).right.carousel-control(role="button", data-slide="next")&attributes(attributes)
+    +link('#' + target).right.carousel-control(role="button", data-slide="next")&attributes(attributes)
         span.icon-next(aria-hidden="true")
         span.sr-only Next
 
@@ -21,7 +21,7 @@ mixin carousel-indicators(target, number, active)
 
     ul.carousel-indicators&attributes(attributes)
         - for(var i = 0; i < number; i++)
-            li(data-target=target, data-slide-to=i, class=(i == active ? 'active' : ''))
+            li(data-target='#' + target, data-slide-to=i, class=(i == active ? 'active' : ''))
 
 //- Контроллеры карусели
     target - ID карусели к которой относятся
