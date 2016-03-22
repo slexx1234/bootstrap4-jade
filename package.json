@@ -2,7 +2,7 @@
   "name": "bootstrap4-jade",
   "version": "1.0.0",
   "description": "",
-  "main": "src/_mixins.jade",
+  "main": "src/_mixins.pug",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
