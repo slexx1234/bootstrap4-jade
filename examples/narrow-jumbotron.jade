@@ -1,0 +1,44 @@
+extends ../library/_master
+
+block title
+    title Starter Template for Bootstrap
+
+append css
+    +css('http://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/narrow-jumbotron')
+
+block container
+    .container
+        .header.clearfix
+            nav: +nav('pills', [
+                {text: 'Home'},
+                {text: 'About'},
+                {text: 'Contact'}
+            ]).pull-xs-right
+            h3.text-muted Project name
+
+        +jumbotron
+            h1.display-3 Jumbotron heading
+            p.lead.
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce
+                dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                ut fermentum massa justo sit amet risus.
+
+            p: +btn('success', 'lg') Sign up today
+
+        .row.marketing
+            - for (var i = 0; i < 2; i++)
+                .col-lg-6
+                    h4 Subheading
+                    p.
+                        Donec id elit non mi porta gravida at eget metus.
+                        Maecenas faucibus mollis interdum.
+
+                    h4 Subheading
+                    p.
+                        Morbi leo risus, porta ac consectetur ac, vestibulum
+                        at eros. Cras mattis consectetur purus sit amet fermentum.
+
+                    h4 Subheading
+                    p Maecenas sed diam eget risus varius blandit sit amet non magna.
+
+        footer.footer: p &copy; Company 2014
