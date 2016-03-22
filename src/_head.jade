@@ -51,7 +51,6 @@ mixin viewport(viewport)
 
 //- Подгрузка bootstrap стилей через cdn
 mixin bootstrap-css-cdn
-    // Bootstrap CDN
     +css('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min')(integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd", crossorigin="anonymous")
 
 //- Подгрузка bootstrap скриптов через cdn
@@ -62,17 +61,14 @@ mixin bootstrap-js-cdn
 
 // Подключение шрифта Font Awesome
 mixin font-awesome-cdn
-    // Font Awesome CDN
     +css('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min')
 
 mixin open-iconic-cdn
-    // Open Iconic CDN
     +css('https://cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min')
 
 //- Добавление мета тэгов
 mixin head
     head
-        // Meta
         +charset
         +compatible
         +viewport
