@@ -1,0 +1,41 @@
+//- Навигационная панэль
+    bg - faded, primary, success, info, warning, danger, inverse
+    light - Светлая?
+mixin navbar(bg, light)
+    nav.navbar(class='bg-' + bg + ' navbar-' + (light ? 'light' : ' dark'))&attributes(attributes)
+        block
+
+//- Логотип
+    href - Ссылка
+mixin navbar-brand(href)
+    +link(href).navbar-brand&attributes(attributes)
+        block
+
+//- Обертка меню навигационной панэли
+mixin navbar-nav-wrap
+    +nav-wrap.navbar-nav&attributes(attributes)
+        block
+
+//- Меню навигационной панэли
+    items - Элементы меню
+mixin navbar-nav(items)
+    +navbar-nav-wrap&attributes(attributes)
+        +nav-menu(items)
+
+//- Кнопка открытия навигационной панэли
+mixin navbar-toggler
+    button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse")&attributes(attributes)
+        | &#9776;
+
+//- Скрываемый контент навигационной панэли
+mixin navbar-collapse
+    .collapse.navbar-toggleable-xs&attributes(attributes)
+        block
+
+//- Скрываемая навигационная панэль
+mixin navbar-collapsed(bg, light)
+    +navbar(bg, light)&attributes(attributes)
+        +navbar-toggler
+        +navbar-collapse
+            block
+
