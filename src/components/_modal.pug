@@ -1,0 +1,40 @@
+//- Заголовак
+mixin modal-title
+    h4.modal-title&attributes(attributes)
+        block
+
+//- Кнопка закрытия
+mixin modal-close
+    +close(data-dismiss="modal")&attributes(attributes)
+
+//- Шапка
+mixin modal-header
+    header.modal-header&attributes(attributes)
+        +modal-close
+        +modal-title
+            block
+
+//- Содержимое
+mixin modal-body
+    .modal-body&attributes(attributes)
+        block
+
+//- Подвал
+mixin modal-footer
+    footer.modal-footer&attributes(attributes)
+        block
+
+//- Обёртка
+mixin modal-wrap
+    .modal(tabindex="-1", role="dialog", aria-hidden="true")&attributes(attributes)
+        .modal-dialog(role="document")
+            .modal-content
+                block
+
+//- Модальное окно
+    title - Загголовак
+mixin modal(title)
+    +modal-wrap
+        +modal-header= title
+        +modal-body
+            block
