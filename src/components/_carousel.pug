@@ -1,0 +1,68 @@
+//- Преаедущий слайд
+    target - ID карусели к которой относятся
+mixin carousel-prev(target)
+    +link(target).left.carousel-control(role="button", data-slide="prev")&attributes(attributes)
+        span.icon-prev(aria-hidden="true")
+        span.sr-only Previous
+
+//- Следующий слайд
+    target - ID карусели к которой относятся
+mixin carousel-next(target)
+    +link(target).right.carousel-control(role="button", data-slide="next")&attributes(attributes)
+        span.icon-next(aria-hidden="true")
+        span.sr-only Next
+
+//- Индикаторы
+    target - ID карусели к которой относятся
+    number - Колличество индикоторов
+    active - Индекс активного элемента
+mixin carousel-indicators(target, number, active)
+    ul.carousel-indicators&attributes(attributes)
+        - for(var i = 0; i < number; i++)
+            li(data-target=target, data-slide-to=i, class=(i == active ? 'active' : ''))
+
+//- Контроллеры карусели
+    target - ID карусели к которой относятся
+mixin carousel-controls(target)
+    +carousel-prev(target)
+    +carousel-next(target)
+
+//- Внутренний блок карусели
+mixin carousel-inner
+    .carousel-inner(role="listbox")&attributes(attributes)
+        block
+
+//- Слайды карусели
+    items - [
+        {
+            src - Путь к изображению
+            alt - Альтернативный текст
+            caption - Текст слайда
+        }
+        и т.д.
+    ]
+    active - Индекс активного элемента
+mixin carousel-items(items, active)
+    +carousel-inner
+        each item, index in items
+            .carousel-item(class=(index == active ? 'active' : ''))
+                +img(item.src, item.alt)
+                if item.caption
+                    .carousel-caption
+                        = item.caption
+
+//- Обёрка карусели
+mixin carousel-wrap
+    .carousel.slide(data-ride="carousel")&attributes(attributes)
+        block
+
+//- Карусель
+    id - ID карусели
+    items - Слайды
+    active - Номер активного элемента
+mixin carousel(id, items, active)
+    +carousel-wrap(id=id)&attributes(attributes)
+        +carousel-indicators(id, items.length, active)
+        +carousel-items(items, active)
+        +carousel-controls(id)
+
