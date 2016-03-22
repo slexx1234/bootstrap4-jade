@@ -23,19 +23,24 @@ mixin navbar-nav(items)
         +nav-menu(items)
 
 //- Кнопка открытия навигационной панэли
-mixin navbar-toggler
-    button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse")&attributes(attributes)
+    breakpoint - Контрольная точка для скрытия кнопки
+mixin navbar-toggler(breakpoint)
+    button.navbar-toggler(
+    type="button"
+    data-toggle="collapse"
+    class=(breakpoint ? 'hidden-' + breakpoint + '-up' : '')
+    )&attributes(attributes)
         | &#9776;
 
 //- Скрываемый контент навигационной панэли
-mixin navbar-collapse
-    .collapse.navbar-toggleable-xs&attributes(attributes)
+mixin navbar-collapse(breakpoint)
+    .collapse(class=(breakpoint ? 'navbar-toggleable-' + breakpoint : ''))&attributes(attributes)
         block
 
 //- Скрываемая навигационная панэль
 mixin navbar-collapsed(bg, light)
     +navbar(bg, light)&attributes(attributes)
-        +navbar-toggler
-        +navbar-collapse
+        +navbar-toggler('sm')
+        +navbar-collapse('xs')
             block
 
