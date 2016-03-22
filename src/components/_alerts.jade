@@ -1,0 +1,20 @@
+//- Кнопка закрытия замечания
+mixin alert-close
+    +close(data-dismiss="alert")&attributes(attributes)
+
+//- Обёртка замечания
+    brand - success, info, warning, danger
+    dismissible - Нужна кнопка закрытия?
+mixin alert-wrap(brand, dismissible)
+    - var alertClass = 'alert-' + brand + (dismissible ? ' alert-dismissible' : '')
+
+    .alert(class=alertClass, role="alert")&attributes(attributes)
+        if dismissible
+            +alert-close
+
+        block
+
+//- Ссылка замечания
+mixin alert-link(href)
+    +link.alert-link&attributes(attributes)
+        block
