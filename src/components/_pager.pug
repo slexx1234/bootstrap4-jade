@@ -1,0 +1,19 @@
+//- Преведущаяя страница
+mixin pager-prev(href)
+    li.pager-prev&attributes(attributes)
+        +link(href)
+            block
+
+//- Следующая страница
+mixin pager-next(href)
+    li.pager-next&attributes(attributes)
+        +link(href)
+            block
+
+//- Пагинация
+    prev - Ссылка на преведущюю страницу
+    next - Ссылка на следующюю страницу
+mixin pager(prev, next)
+    ul.pager&attributes(attributes)
+        +pager-prev(href)
+        +pager-next(href)
