@@ -1,0 +1,26 @@
+//- Стилизований чекбокс
+mixin c-checkbox
+    label.c-input.c-checkbox
+        input(type="checkbox")&attributes(attributes)
+        span.c-indicator
+
+        block
+
+// Стилизованая радио кнопка
+mixin c-radio
+    label.c-input.c-radio
+        input(type="radio")&attributes(attributes)
+        span.c-indicator
+
+        block
+
+//- Стилизованное выпадывающее меню
+mixin c-select
+    select.c-select&attributes(attributes)
+        block
+
+//- Стилизованный выбор файла
+mixin c-file
+    label.file
+        input(type="file")&attributes(attributes)
+        span.file-custom
