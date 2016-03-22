@@ -1,0 +1,18 @@
+//- Хлебные крошки, последний элемент
+    автоматически выделяеться как активный
+    items [
+        {
+            href - Ссылка
+            text - Текст
+        }
+        и т.д.
+    ]
+mixin breadcrumb(items)
+    ol.breadcrumb&attributes(attributes)
+        each item, index in items
+            if (index != items.length)
+                li: +link(item.href)
+                    = item.text
+            else
+                li.active
+                    = item.text
