@@ -1,0 +1,68 @@
+//- Ссылка навигации
+mixin page-link(href)
+    +link(href).page-link&attributes(attributes)
+        block
+
+//- Ссылка на страницу
+mixin page-item(href)
+    li.page-item&attributes(attributes)
+        +page-link(href)
+            block
+
+//- Ссылка на преведущюю страницу
+mixin page-prev(href)
+    +page-item(href)&attributes(attributes)
+        span(aria-hidden="true") &laquo;
+        span.sr-only
+            block
+
+//- Ссылка на следующюю страницу
+mixin page-next(href)
+    +page-item(href)&attributes(attributes)
+        span(aria-hidden="true") &raquo;
+        span.sr-only
+            block
+
+//- Разделитель навигации
+mixin page-dots(href)
+    +page-item(href)&attributes(attributes)
+        span(aria-hidden="true") ...
+        span.sr-only
+            block
+
+//- Обёртка пагинации
+    size - lg, sm
+mixin pagination-wrap(size)
+    ul.pagination(class=(size ? 'pagination-' + size : ''))&attributes(attributes)
+        block
+
+//- Пагинация
+    items [
+        {
+            type - Типы prev, next, dots, item
+            href - Ссылка
+            attributes - Атрибуты
+            text - Текст
+        }
+        и т.д.
+    ]
+    size - Размер пагмнации
+mixin pagination(items, size)
+    +pagination-wrap(size)
+        each item in items
+            case item.type
+                when 'prev'
+                    +page-prev(item.href)&attributes(item.attributes)
+                        = item.text
+
+                when 'next'
+                    +page-next(item.href)&attributes(item.attributes)
+                        = item.text
+
+                when 'dots'
+                    +page-dots(item.href)&attributes(item.attributes)
+                        = item.text
+
+                default
+                    +page-link(item.href)&attributes(item.attributes)
+                        = item.text
