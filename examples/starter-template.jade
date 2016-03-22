@@ -1,4 +1,21 @@
 extends ../library/_master
+
 block title
     title Starter Template for Bootstrap
 
+block container
+    +navbar('inverse', false).navbar-fixed-top
+        +navbar-brand Project name
+        +navbar-nav([
+            {text: 'Home', attributes: {'class': 'active'}},
+            {text: 'About'},
+            {text: 'Contact'}
+        ])
+
+    .container
+        .starter-template
+            h1 Bootstrap starter template
+            p.lead
+                | Use this document as a way to quickly start any new project.
+                br
+                | All you get is this text and a mostly barebones HTML document.
