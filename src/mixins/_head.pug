@@ -53,10 +53,16 @@ mixin viewport(viewport)
 mixin bootstrap-css-cdn
     +css('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min')(integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd", crossorigin="anonymous")
 
+//- jQuery CDN
+mixin jquery-cdn
+    +js('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min')
+
+//- Tether CDN
+mixin tether-cdn
+    +js('https://cdn.jsdelivr.net/tether/1.2.0/tether.min')
+
 //- Подгрузка bootstrap скриптов через cdn
 mixin bootstrap-js-cdn
-    +js('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min')
-    +js('https://cdn.jsdelivr.net/tether/1.2.0/tether.min')
     +js('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min')(integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7", crossorigin="anonymous")
 
 // Подключение шрифта Font Awesome

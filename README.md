@@ -39,6 +39,8 @@ html(lang="en")
     body
         h1 Hello, world!
         
+        +jquery-cdn
+        +tether-cdn
         +bootstrap-js-cdn
 ```
 
