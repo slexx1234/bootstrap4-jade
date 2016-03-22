@@ -1,15 +1,11 @@
-//- Обёртка карточки
-    brand - primary, success, info, warning, danger
-mixin card-wrap(brand)
-    - var cardClass = ''
-    - if (brand) cardClass += 'card-' + brand + ' card-inverse'
-
-    section.card(class=cardClass)&attributes(attributes)
-        block
-
 //- Заголовак карточки
 mixin card-title
     h4.card-title&attributes(attributes)
+        block
+
+//- Дополнительный заголовак
+mixin card-subtitle
+    h6.card-subtitle.text-muted&attributes(attributes)
         block
 
 //- Изображенте карточки
@@ -24,6 +20,12 @@ mixin card-img-top(src, alt)
 mixin card-img-bottom(src, alt)
     +img(src, alt).card-img&attributes(attributes)
 
+//- Обёртка изображения
+mixin card-img-overlay(src, alt)
+    +card-img(src, alt)
+    .card-img-overlay&attributes(attributes)
+        block
+
 //- Цитата
 mixin card-blockquote
     blockquote.card-blockquote&attributes(attributes)
@@ -34,8 +36,54 @@ mixin card-text
     p.card-text&attributes(attributes)
         block
 
+//- Ссылка карточки
+mixin card-link(href)
+    +link(href).card-link&attributes(attributes)
+        block
+
 //- Подпись
 mixin card-caption
     +card-text: small.text-muted&attributes(attributes)
         block
 
+//- Обёртка шапки карточки
+mixin card-header-wrap
+    header.card-header&attributes(attributes)
+        block
+
+//- Шапка карточки
+    title - Заголовак
+    subtitle - Дополнительный заголовак
+mixin card-header(title, subtitle)
+    +card-header-wrap
+        +card-title= title
+
+        if subtitle
+            +card-subtitle= subtitle
+
+//- Блок карточки
+mixin card-block
+    .card-block&attributes(attributes)
+        block
+
+//- Подвал карточки
+mixin card-footer
+    footer.card-footer&attributes(attributes)
+        block
+
+//- Обёртка карточки
+    brand - primary, success, info, warning, danger
+mixin card-wrap(brand)
+    - var cardClass = ''
+    - if (brand) cardClass += 'card-' + brand + ' card-inverse'
+    section.card(class=cardClass)&attributes(attributes)
+        block
+
+//- Карточка
+    title - Заголовак
+    brand- primary, success, info, warning, danger
+mixin card(title, brand)
+    +card-wrap(brand)
+        +card-header= header
+        +card-block
+            block
