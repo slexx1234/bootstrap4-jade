@@ -1,0 +1,11 @@
+//- Банер
+    fluid - На всю ширину? (bool)
+    container - Внутренний контайнер? (bool)
+mixin jumbotron(fluid, container)
+    .jumbotron(role="baner", class=(fluid ? 'jumbotron-fluid' : ''))&attributes(attributes)
+        if container
+            .container
+                block
+
+        else
+            block
