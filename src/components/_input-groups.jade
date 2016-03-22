@@ -1,0 +1,11 @@
+//- Группа форм
+    size - sm или lg
+mixin input-group(size)
+    .input-group(class=(size ? 'btn-group-' + size : ''))&attributes(attributes)
+        block
+
+//- Кнопка группы форм
+mixin input-group-btn(brand, size)
+    span.input-group-btn
+        +btn(brand, size)&attributes(attributes)
+            block
