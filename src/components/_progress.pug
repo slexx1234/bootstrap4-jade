@@ -1,0 +1,13 @@
+//- Индикатор прогреса
+    val - Текущее значение
+    max - Максимальное значение
+    brand - success, info, warning, danger
+    striped - Полосатый?
+mixin progress(val, max, brand, striped)
+    - var progressClass = 'progress' + (brand ? ' progress-' + brand : '') + (striped ? ' progress-striped' : '')
+    - var progressWidth = max / 100 * val + '%'
+
+    progress(class=progressClass, value=val, max=max)&attributes(attributes)
+        .progress
+            span.progress-bar(style={width: progressWidth})
+                = progressWidth
