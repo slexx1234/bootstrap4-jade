@@ -1,0 +1,59 @@
+//- Кнопка открытия меню
+mixin dropdown-toggle(brand, size)
+    +btn(brand, size)(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")&attributes(attributes)
+        block
+
+//- Разделитель меню
+mixin dropdown-divider
+    .dropdown-divider(role="separator")&attributes(attributes)
+
+//- Заголовак меню
+mixin dropdown-header
+    h6.dropdown-header&attributes(attributes)
+        block
+
+//- Элемент меню
+mixin dropdown-item(href)
+    +link(href).dropdown-item&attributes(attributes)
+        block
+
+//- Меню
+    items [
+        {
+            type - Тип элемента (header, divider, item по умолчанию)
+            attributes - Атрибуты элемента
+            text - Текст элемента, доступно для типов header и item
+            href - Ссылка, доступно для типа item
+        }
+        и т.д.
+    ]
+mixin dropdown-menu(items)
+    nav.dropdown-menu
+        each item in items
+            case item.type
+                when 'header'
+                    +dropdown-header&attributes(item.attributes)
+                        = text
+
+                when 'divider'
+                    +dropdown-divider&attributes(item.attributes)
+
+                default
+                    +dropdown-item(item.href)&attributes(item.attributes)
+                        = text
+
+//- Выпадывающее меню
+    text - Текст кнопки открытия меню
+    items - Элементы меню
+mixin dropdown(text, items)
+    .dropdown&attributes(item.attributes)
+        +dropdown-toggle= text
+        +dropdown-menu(items)
+
+//- Выпадвающее меню вверх
+mixin dropup(text, items)
+    .dropup&attributes(item.attributes)
+        +dropdown-toggle= text
+        +dropdown-menu(items)
+
+

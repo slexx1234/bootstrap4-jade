@@ -9,3 +9,11 @@ mixin input-group-btn(brand, size)
     span.input-group-btn
         +btn(brand, size)&attributes(attributes)
             block
+
+//- Выадывающее меню
+mixin input-group-dropdown(text, items)
+    +dropdown(text, items)(class="input-group-btn")&attributes(attributes)
+
+//- Выадывающее меню вверх
+mixin input-group-dropup(text, items)
+    +dropup(text, items)(class="input-group-btn")&attributes(attributes)
