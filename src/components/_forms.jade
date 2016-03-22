@@ -1,0 +1,47 @@
+//- TODO
+mixin fieldset(legend)
+    fieldset&attributes(attributes)
+        legend= legend
+        block
+
+//- TODO
+mixin form-group(label)
+    fieldset.form-group&attributes(attributes)
+        label.form-control-label= label
+        block
+
+//- Радио кнопки
+    wrapClass - Классы обёртки
+mixin radio(wrapClass)
+    .radio(class=wrapClass)
+        label
+            input(type="radio")&attributes(attributes)
+            block
+
+mixin radio-inline
+    label.radio-inline
+        input(type="radio")&attributes(attributes)
+            block
+
+//- Чекбоксы
+    wrapClass - Классы обёртки
+mixin checkbox(wrapClass)
+    .checkbox(class=wrapClass)
+        label
+            input(type="checkbox")&attributes(attributes)
+            block
+
+mixin checkbox-inline
+    label.checkbox-inline
+        input(type="checkbox")&attributes(attributes)
+            block
+
+//- Кнопка отправки
+mixin submit(brand, size)
+    +btn(brand, size)(type="submit")&attributes(attributes)
+        block
+
+//- Кнопка сброса
+mixin reset(brand, size)
+    +btn(brand, size)(type="reset")&attributes(attributes)
+        block
