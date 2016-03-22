@@ -17,6 +17,8 @@ mixin carousel-next(target)
     number - Колличество индикоторов
     active - Индекс активного элемента
 mixin carousel-indicators(target, number, active)
+    - if (!active) active = 0
+
     ul.carousel-indicators&attributes(attributes)
         - for(var i = 0; i < number; i++)
             li(data-target=target, data-slide-to=i, class=(i == active ? 'active' : ''))
