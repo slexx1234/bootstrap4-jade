@@ -38,7 +38,7 @@ mixin navbar-toggler(target, breakpoint)
     id - Идентификатор
     breakpoint - Контрольная точка для скрытия
 mixin navbar-collapse(id, breakpoint)
-    .collapse(class=(breakpoint ? 'navbar-toggleable-' + breakpoint : ''), id=id)&attributes(attributes)
+    .collapse.navbar-collapse(class=(breakpoint ? 'navbar-toggleable-' + breakpoint : ''), id=id)&attributes(attributes)
         block
 
 //- Скрываемая навигационная панэль

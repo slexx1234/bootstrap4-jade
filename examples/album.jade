@@ -1,0 +1,73 @@
+extends ../library/_master
+
+block title
+    title Album example for Bootstrap
+
+append css
+    +css('http://v4-alpha.getbootstrap.com/examples/album/album')
+
+append js
+    +js('https://cdn.jsdelivr.net/holder/2.9.3/holder.min')
+    +js.
+        $(function () {
+            Holder.addTheme('thumb', {
+                background: '#55595c',
+                foreground: '#eceeef',
+                text: 'Thumbnail'
+            });
+        });
+
+block container
+    +navbar-collapse('navbar-header').inverse
+        .container-fluid
+            .about
+                h4 About
+                p.text-muted.
+                    Add some information about the album below, the author, or any other
+                    background context. Make it a few sentences long so folks can pick
+                    up some informative tidbits. Then, link them off to some social
+                    networking sites or contact information.
+
+            .social
+                h4 Contact
+                ul.list-unstyled
+                    li: +link Follow on Twitter
+                    li: +link Like on Facebook
+                    li: +link Email me
+
+    +navbar('inverse', false).navbar-full
+        .container-fluid
+            +navbar-toggler('navbar-header')
+            +navbar-brand Album
+
+    +jumbotron(true, true).text-xs-center
+        h1 Album example
+        p.lead.text-muted.
+            Something short and leading about the collection below—its contents, the
+            creator, etc. Make it short and sweet, but not too short so folks don't
+            simply skip over it entirely.
+
+        p
+            +btn('primary') Main call to action
+            +btn Secondary action
+
+    .album.text-muted: .container: .row
+        - for (var i = 0; i < 9; i++)
+            .card
+                +img('holder.js/100px280/thumb', 'Card image cap')
+                +card-text.
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+
+    footer.text-muted: .container
+        p.pull-xs-right: +link Back to top
+        p Album example is &copy; Bootstrap, but please download and customize it for yourself!
+        p
+            | New to Bootstrap?
+            +s
+            +link('../../') Visit the homepage
+            |  or read our
+            +s
+            +link('../../getting-started/') getting started guide
+            | .
+
