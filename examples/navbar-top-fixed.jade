@@ -8,13 +8,13 @@ append css
 
 block container
     .pos-f-t
-        +navbar-collapse#navbar-header
+        +navbar-collapse('navbar-header')
             .container-fluid.bg-inverse.p-a-1
                 h3 Collapsed content
                 p Toggleable via the navbar brand.
 
         +navbar('faded')
-            +navbar-toggler(data-target="#navbar-header")
+            +navbar-toggler('navbar-header')
 
     .container
         +jumbotron

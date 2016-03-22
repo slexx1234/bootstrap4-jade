@@ -1,0 +1,33 @@
+extends ../library/_master
+
+block title
+    title Navbar Template for Bootstrap
+
+append css
+    +css('http://v4-alpha.getbootstrap.com/examples/navbar/navbar')
+
+block container
+    .container
+        +navbar-collapsed('navbar-header', 'faded', true)
+            +navbar-brand Navbar
+            +navbar-nav([
+                {text: 'Home', attributes: {'class': 'active'}},
+                {text: 'Features'},
+                {text: 'Pricing'},
+                {text: 'About'}
+            ])
+            form.form-inline.pull-xs-right
+                input.form-control(type="text", placeholder="Search")
+                +btn-outline('success')(type="submit") Search
+
+        +jumbotron
+            h1 Navbar example
+            p.
+                This example is a quick exercise to illustrate how the default responsive
+                navbar works. It's placed within a <code>.container</code> to limit its
+                width and will scroll with the rest of the page's content.
+            p.
+                At the smallest breakpoint, the collapse plugin is used to hide the
+                links and show a menu button to toggle the collapsed content.
+
+            +btn('primary', 'lg') View navbar docs »
