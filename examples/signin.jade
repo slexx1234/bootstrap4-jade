@@ -1,0 +1,17 @@
+extends ../library/_master
+
+block title
+    title Signin Template for Bootstrap
+
+append css
+    +css('http://v4-alpha.getbootstrap.com/examples/signin/signin')
+
+block container
+    .container
+
+        form.form-signin
+            h2.form-signin-heading Please sign in
+            +email(placeholder="Email address", required, autofocus)
+            +password(placeholder="Password", required)
+            +checkbox(value="remember-me")  Remember me
+            +submit('primary', 'lg').btn-block Sign in
