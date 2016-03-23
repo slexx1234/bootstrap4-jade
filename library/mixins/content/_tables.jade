@@ -2,6 +2,8 @@
     options - Массив настроек миксина table-cell
     cellTag - Имя тэга колонки
 mixin table-row(options, cellTag)
+    - if (!cellTag) cellTag = 'td'
+
     tr
         each option in options
             #{cellTag}= option

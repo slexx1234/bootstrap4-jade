@@ -1,0 +1,85 @@
+extends ../../../library/_master
+
+block title
+    title Dashboard Template for Bootstrap
+
+append css
+    +css('http://v4-alpha.getbootstrap.com/examples/dashboard/dashboard')
+
+append js
+    +js('https://cdn.jsdelivr.net/holder/2.9.3/holder.min')
+
+block container
+
+    +navbar-collapsed('navbar', 'inverse').navbar-fixed-top
+        +navbar-brand Project name
+        +navbar-nav([
+            {text: 'Dashboard'},
+            {text: 'Settings'},
+            {text: 'Profile'},
+            {text: 'Help'}
+        ]).pull-xs-left
+
+        form.pull-xs-right
+            +search(placeholder="Search...")
+
+    .container-fluid
+        .row
+            .col-sm-3.col-md-2.sidebar.p-a-0
+                mixin nav-sidebar(items)
+                    +nav-wrap('pills', true)
+                        +nav-menu(items)
+
+                +nav-sidebar([
+                    {text: 'Overview', attributes: {'class': 'active'}},
+                    {text: 'Reports'},
+                    {text: 'Analytics'},
+                    {text: 'Export'}
+                ])
+                +nav-sidebar([
+                    {text: 'Nav item'},
+                    {text: 'Nav item again'},
+                    {text: 'One more nav'},
+                    {text: 'Another nav item'},
+                    {text: 'More navigation'}
+                ])
+                +nav-sidebar([
+                    {text: 'Nav item again'},
+                    {text: 'One more nav'},
+                    {text: 'Another nav item'}
+                ])
+
+            .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+                h1.page-header Dashboard
+
+                .row.placeholders
+                    - for (var i = 0; i < 4; i++)
+                        .col-xs-6.col-sm-3.placeholder
+                            +img-fluid('holder.js/200x200?random=yes&auto=yes', 'Generic placeholder thumbnail').m-b-1
+                            h4 Label
+                            span.text-muted Something else
+
+                h2 Section title
+
+                +table-responsive(
+                    [
+                        ['#',     'Header',   'Header',      'Header',     'Header']
+                    ],
+                    [
+                        ['1,001', 'Lorem',    'ipsum',       'dolor',      'sit'],
+                        ['1,002', 'amet',     'consectetur', 'adipiscing', 'elit'],
+                        ['1,003', 'Integer',  'nec',         'odio',       'Praesent'],
+                        ['1,004', 'libero',   'Sed',         'cursus',     'ante'],
+                        ['1,005', 'dapibus',  'diam',        'Sed',        'nisi'],
+                        ['1,006', 'Nulla',    'quis',        'sem',        'at'],
+                        ['1,007', 'nibh',     'elementum',   'imperdiet',  'Duis'],
+                        ['1,008', 'sagittis', 'ipsum',       'Praesent',   'mauris'],
+                        ['1,009', 'Fusce',    'nec',         'tellus',     'sed'],
+                        ['1,010', 'augue',    'semper',      'porta',      'Mauris'],
+                        ['1,011', 'massa',    'Vestibulum',  'lacinia',    'arcu'],
+                        ['1,012', 'eget',     'nulla',       'Class',      'aptent'],
+                        ['1,013', 'taciti',   'sociosqu',    'ad',         'litora'],
+                        ['1,014', 'torquent', 'per',         'conubia',    'nostra'],
+                        ['1,015', 'per',      'inceptos',    'himenaeos',  'Curabitur']
+                    ]
+                ).table-striped
