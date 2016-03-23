@@ -1,3 +1,73 @@
+//- Поле для ввода большого текста
+mixin textarea
+    textarea.form-control&attributes(attributes)
+        block
+
+//- Выпадывающий список
+mixin select
+    select.form-control&attributes(attributes)
+        block
+
+//- Выбор файла
+mixin file
+    input.form-control-file(type="file")&attributes(attributes)
+
+//- Ввод текста
+mixin text
+    +input.form-control(type="text")&attributes(attributes)
+
+//- Ввод электронной почты
+mixin email
+    +text(type="email")&attributes(attributes)
+
+//- Ввод пароля
+mixin password
+    +text(type="password")&attributes(attributes)
+
+//- Ввод числа
+mixin number
+    +text(type="number")&attributes(attributes)
+
+//- Забор даты, времени
+mixin datetime
+    +text(type="datetime")&attributes(attributes)
+
+//- Забор даты, времени и часового пояся
+mixin datetime-local
+    +text(type="datetime-local")&attributes(attributes)
+
+//- Выбор даты
+mixin date
+    +text(type="date")&attributes(attributes)
+
+//- Выбор месяца
+mixin month
+    +text(type="month")&attributes(attributes)
+
+//- Выбор времени
+mixin time
+    +text(type="time")&attributes(attributes)
+
+//- Выбор недели
+mixin week
+    +text(type="week")&attributes(attributes)
+
+//- Ввод URL
+mixin url
+    +text(type="url")&attributes(attributes)
+
+//- Поиск
+mixin search
+    +text(type="search")&attributes(attributes)
+
+//- Ввод телефона
+mixin tel
+    +text(type="tel")&attributes(attributes)
+
+//- Выбор цвета
+mixin color
+    +text(type="color")&attributes(attributes)
+
 //- TODO
 mixin fieldset(legend)
     fieldset&attributes(attributes)
