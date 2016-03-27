@@ -1,6 +1,6 @@
 {
   "name": "bootstrap4-jade",
-  "version": "1.0.0",
+  "version": "v1.0.0-dev",
   "description": "",
   "main": "library/_mixins.jade",
   "scripts": {
